@@ -1,0 +1,15 @@
+button{
+    border-radius: 50%;
+    border: 3px solid aquamarine;
+    background-color: aquamarine;
+    width: 40px;
+    height: 40px;
+    font-size: large;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+}
+.add{
+    display: flex;
+    justify-content: flex-end;
+}
