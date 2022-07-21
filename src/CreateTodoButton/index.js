@@ -3,7 +3,7 @@ import './CreateTodoButton.css'
 
 function CreateTodoButtom(props){
     const onClickButton = () => {
-        alert ('Modal');
+        props.setOpenModal(true);
     };
     return(
         <div className="add">

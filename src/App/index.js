@@ -4,7 +4,7 @@ import { TodoSearch } from "../TodoSearch/index.js";
 import { TodoList } from "../TodoList/index.js";
 import { TodoItem } from "../TodoItem/index.js";
 import { CreateTodoButtom } from "../CreateTodoButton/index";
-
+import { Modal } from "../Modal";
 
 function useLocalStorage (itemName, initialValue){
   const [error, setError] = React.useState(false);
@@ -65,7 +65,7 @@ function App() {
     error
   } = useLocalStorage('TODOS_V1', []);
   const [searchValue,setSearchValue] = React.useState('');
-
+  const [openModal, setOpenModal] = React.useState(false)
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
@@ -122,7 +122,15 @@ function App() {
         ))}
       </TodoList>
 
-      <CreateTodoButtom />
+      {openModal && (
+      <Modal>
+        <p>Teleport</p>
+      </Modal>
+      )}
+
+      <CreateTodoButtom 
+        setOpenModal={setOpenModal}
+      />
     </React.Fragment>
   );
 }
