@@ -1,4 +1,4 @@
-button{
+.addButton{
     border-radius: 50%;
     border: 3px solid aquamarine;
     background-color: aquamarine;
@@ -8,8 +8,4 @@ button{
     position: fixed;
     bottom: 24px;
     right: 24px;
-}
-.add{
-    display: flex;
-    justify-content: flex-end;
 }

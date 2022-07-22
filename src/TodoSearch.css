@@ -5,12 +5,7 @@
     width: 200px;
     height: 50px;
     margin-bottom: 25px; 
-}
-.search{
-    display: flex;
-    justify-content: center;
-}
-input{
     color: slategray;
     text-align: center;
+    margin-left: 65px;
 }

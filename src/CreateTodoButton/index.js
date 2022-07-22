@@ -6,11 +6,9 @@ function CreateTodoButtom(props){
         props.setOpenModal(true);
     };
     return(
-        <div className="add">
-        <button onClick={onClickButton}>
+        <button className="addButton" onClick={onClickButton}>
             +
         </button>
-        </div>
     );
 }
 

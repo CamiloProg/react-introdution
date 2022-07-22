@@ -25,11 +25,14 @@ function useLocalStorage (itemName, initialValue){
           } else {
             parsedItem = JSON.parse(localStorageItem);
           }
-  
           setItem(parsedItem);
+
+
         } catch(error) {
         // En caso de un error lo guardamos en el estado
           setError(error);
+
+          
         } finally {
           // También podemos utilizar la última parte del try/cath (finally) para terminar la carga
           setLoading(false);
@@ -65,7 +68,7 @@ function App() {
     error
   } = useLocalStorage('TODOS_V1', []);
   const [searchValue,setSearchValue] = React.useState('');
-  const [openModal, setOpenModal] = React.useState(false)
+  const [openModal, setOpenModal] = React.useState(false);
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
@@ -92,6 +95,14 @@ function App() {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
+    saveTodos(newTodos);
+  };
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      completed:false,
+      text
+    });
     saveTodos(newTodos);
   };
 
@@ -123,9 +134,11 @@ function App() {
       </TodoList>
 
       {openModal && (
-      <Modal>
-        <p>Teleport</p>
-      </Modal>
+      <Modal 
+      setOpenModal={setOpenModal}
+      todos = {todos}
+      addTodo={addTodo}
+      />
       )}
 
       <CreateTodoButtom 
